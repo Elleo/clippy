@@ -76,7 +76,7 @@ link { color: #003366; }
         self.set_app_paintable(True)
         self.set_decorated(False)
         self.dir = os.path.dirname(os.path.realpath(__file__))
-        self.img = Gtk.Image.new_from_file(f"{self.dir}/clippy/clippy001.png")
+        self.img = Gtk.Image.new_from_file(f"{self.dir}/clippy-images/clippy001.png")
         self.vbox = Gtk.VBox()
         self.label = Gtk.Label()
         self.label.set_line_wrap(True)
@@ -106,7 +106,7 @@ Would you like help?
         self.frame = self.start_frame
 
     def process_frame(self, _):
-        new_frame = f"{self.dir}/clippy/clippy{self.frame:03d}.png"
+        new_frame = f"{self.dir}/clippy-images/clippy{self.frame:03d}.png"
         self.img.set_from_file(new_frame)
         if self.reversing:
             self.frame -= 1
@@ -195,5 +195,9 @@ So just eliminate them!
         context.paint()
         context.set_operator(cairo.OPERATOR_OVER)
 
-Clippy()
-Gtk.main()
+def main():
+    Clippy()
+    Gtk.main()
+
+if __name__ == '__main__':
+    main()
